@@ -1,18 +1,20 @@
 {
-  "name": "@dnlsndr/vue-phosphor-icons",
-  "version": "1.0.0",
+  "name": "@hotellistat/vue-phosphor-icons-lib",
+  "version": "0.0.1",
   "description": "Vue2 tree shakeable Phosphor icons component library",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "repository": "https://github.com/dnlsndr/vue-phosphor-icons.git",
+  "author": "Daniel Schneider <daniel.schneider@hotellistat.de>",
+  "license": "MIT",
+  "repository": "hotellistat/vue-phosphor-icons",
   "main": "dist/vue-phosphor-icons.ssr.js",
   "browser": "dist/vue-phosphor-icons.esm.js",
   "module": "dist/vue-phosphor-icons.esm.js",
   "unpkg": "dist/vue-phosphor-icons.min.js",
   "types": "dist/types/src/entry.esm.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "sideEffects": false,
   "keywords": [
@@ -34,12 +36,9 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "assemble": "node bin/assemble.js",
     "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts",
-    "publish": "npm publish"
+    "publish": "npm publish --force --access public"
   },
-
-  "dependencies": {
-  },
-
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
@@ -58,8 +57,8 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "^5.1.9",
     "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^5.1.9",
     "ttypescript": "^1.5.12",
     "typescript": "^4.0.3",
     "vue": "^2.6.14",
