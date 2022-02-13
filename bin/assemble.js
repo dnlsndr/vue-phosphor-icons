@@ -3,8 +3,6 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
-const path = require("path");
-
 const ASSETS_PATH = path.join(__dirname, "../assets");
 const COMPONENTS_PATH = path.join(__dirname, "../src/lib-components");
 const INDEX_PATH = path.join(__dirname, "../src/lib-components/index.ts");
@@ -110,9 +108,8 @@ function generateComponents() {
     Object.keys(icon).forEach((weight, index) => {
       // for (let weight in icon) {
       componentString += `\
-    <g v${index > 0 ? "-else" : ""}-if="displayWeight === '${weight}'">${
-        icon[weight]
-      }</g>\n`;
+    <g v${index > 0 ? "-else" : ""}-if="displayWeight === '${weight}'">${icon[weight]
+        }</g>\n`;
     });
     componentString += `\
   </svg>
@@ -128,7 +125,7 @@ import {
   ContextGetter
 } from "../types";
 
-export default /*#__PURE__*/Vue.extend<{}, {}, IconComputed, IconProps>({
+export default Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "Ph${name}",
   props: PropValidator,
   inject: ContextGetter,
