@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "serve": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build": "vite build && NODE_OPTIONS=--max_old_space_size=2048 vue-tsc --emitDeclarationOnly",
     "compile": "vue-tsc --emitDeclarationOnly",
     "analyze": "cross-env ANALYZE=true vite build",
     "assemble": "node bin/assemble.js",
