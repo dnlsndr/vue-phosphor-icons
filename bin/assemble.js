@@ -79,7 +79,6 @@ function generateComponents() {
       .map((substr) => substr.replace(/^\w/, (c) => c.toUpperCase()))
       .join("");
     let componentString = `\
-/* GENERATED FILE */
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
