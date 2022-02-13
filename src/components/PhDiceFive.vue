@@ -8,143 +8,53 @@
     :fill="displayColor"
     :transform="displayMirrored"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <slot />
-    <g v-if="displayWeight === 'bold'">
-      <rect
-        x="40"
-        y="40"
-        width="176"
-        height="176"
-        rx="24"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-      <circle cx="88" cy="88" r="16" />
-      <circle cx="128" cy="128" r="16" />
-      <circle cx="168" cy="88" r="16" />
-      <circle cx="88" cy="168" r="16" />
-      <circle cx="168" cy="168" r="16" />
-    </g>
-    <g v-else-if="displayWeight === 'duotone'">
-      <rect x="40" y="40" width="176" height="176" rx="24" opacity="0.2" />
-      <rect
-        x="40"
-        y="40"
-        width="176"
-        height="176"
-        rx="24"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <circle cx="92" cy="92" r="12" />
-      <circle cx="164" cy="92" r="12" />
-      <circle cx="92" cy="164" r="12" />
-      <circle cx="128" cy="128" r="12" />
-      <circle cx="164" cy="164" r="12" />
-    </g>
-    <g v-else-if="displayWeight === 'fill'">
-      <path
-        d="M192,32H64A32.1,32.1,0,0,0,32,64V192a32.1,32.1,0,0,0,32,32H192a32.1,32.1,0,0,0,32-32V64A32.1,32.1,0,0,0,192,32ZM92,176a12,12,0,1,1,12-12A12,12,0,0,1,92,176Zm0-72a12,12,0,1,1,12-12A12,12,0,0,1,92,104Zm36,36a12,12,0,1,1,12-12A12,12,0,0,1,128,140Zm36,36a12,12,0,1,1,12-12A12,12,0,0,1,164,176Zm0-72a12,12,0,1,1,12-12A12,12,0,0,1,164,104Z"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'light'">
-      <rect
-        x="40"
-        y="40"
-        width="176"
-        height="176"
-        rx="24"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="12"
-      />
-      <circle cx="92" cy="92" r="10" />
-      <circle cx="128" cy="128" r="10" />
-      <circle cx="164" cy="92" r="10" />
-      <circle cx="92" cy="164" r="10" />
-      <circle cx="164" cy="164" r="10" />
-    </g>
-    <g v-else-if="displayWeight === 'thin'">
-      <rect
-        x="40"
-        y="40"
-        width="176"
-        height="176"
-        rx="24"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="8"
-      />
-      <circle cx="92" cy="92" r="8" />
-      <circle cx="128" cy="128" r="8" />
-      <circle cx="164" cy="92" r="8" />
-      <circle cx="92" cy="164" r="8" />
-      <circle cx="164" cy="164" r="8" />
-    </g>
-    <g v-else-if="displayWeight === 'regular'">
-      <rect
-        x="40"
-        y="40"
-        width="176"
-        height="176"
-        rx="24"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <circle cx="92" cy="92" r="12" />
-      <circle cx="164" cy="92" r="12" />
-      <circle cx="92" cy="164" r="12" />
-      <circle cx="128" cy="128" r="12" />
-      <circle cx="164" cy="164" r="12" />
-    </g>
+    <g v-if="displayWeight === 'bold'"><rect x="40" y="40" width="176" height="176" rx="24" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><circle cx="88" cy="88" r="16"/><circle cx="128" cy="128" r="16"/><circle cx="168" cy="88" r="16"/><circle cx="88" cy="168" r="16"/><circle cx="168" cy="168" r="16"/></g>
+    <g v-else-if="displayWeight === 'duotone'"><rect x="40" y="40" width="176" height="176" rx="24" opacity="0.2"/><rect x="40" y="40" width="176" height="176" rx="24" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="92" cy="92" r="12"/><circle cx="164" cy="92" r="12"/><circle cx="92" cy="164" r="12"/><circle cx="128" cy="128" r="12"/><circle cx="164" cy="164" r="12"/></g>
+    <g v-else-if="displayWeight === 'fill'"><path d="M192,32H64A32.1,32.1,0,0,0,32,64V192a32.1,32.1,0,0,0,32,32H192a32.1,32.1,0,0,0,32-32V64A32.1,32.1,0,0,0,192,32ZM92,176a12,12,0,1,1,12-12A12,12,0,0,1,92,176Zm0-72a12,12,0,1,1,12-12A12,12,0,0,1,92,104Zm36,36a12,12,0,1,1,12-12A12,12,0,0,1,128,140Zm36,36a12,12,0,1,1,12-12A12,12,0,0,1,164,176Zm0-72a12,12,0,1,1,12-12A12,12,0,0,1,164,104Z"/></g>
+    <g v-else-if="displayWeight === 'light'"><rect x="40" y="40" width="176" height="176" rx="24" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><circle cx="92" cy="92" r="10"/><circle cx="128" cy="128" r="10"/><circle cx="164" cy="92" r="10"/><circle cx="92" cy="164" r="10"/><circle cx="164" cy="164" r="10"/></g>
+    <g v-else-if="displayWeight === 'thin'"><rect x="40" y="40" width="176" height="176" rx="24" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><circle cx="92" cy="92" r="8"/><circle cx="128" cy="128" r="8"/><circle cx="164" cy="92" r="8"/><circle cx="92" cy="164" r="8"/><circle cx="164" cy="164" r="8"/></g>
+    <g v-else-if="displayWeight === 'regular'"><rect x="40" y="40" width="176" height="176" rx="24" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="92" cy="92" r="12"/><circle cx="164" cy="92" r="12"/><circle cx="92" cy="164" r="12"/><circle cx="128" cy="128" r="12"/><circle cx="164" cy="164" r="12"/></g>
   </svg>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import {
-  IconComputed,
-  IconProps,
-  IconContext,
-  ContextGetter,
-  PropValidator,
-} from "../defaults";
-export default Vue.extend<{}, {}, IconComputed, IconProps>({
+import { computed, defineComponent, inject, PropType } from "vue";
+
+export default defineComponent({
   name: "PhDiceFive",
-  props: PropValidator,
-  inject: ContextGetter,
-  computed: {
-    displayWeight() {
-      const { weight, contextWeight } = this as IconProps & IconContext;
-      return weight ?? contextWeight;
+  props: {
+    weight: {
+      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
     },
-    displaySize() {
-      const { size, contextSize } = this as IconProps & IconContext;
-      return size ?? contextSize;
+    size: {
+      type: [String, Number]
     },
-    displayColor() {
-      const { color, contextColor } = this as IconProps & IconContext;
-      return color ?? contextColor;
+    color: {
+      type: String
     },
-    displayMirrored() {
-      const { mirrored, contextMirrored } = this as IconProps & IconContext;
-      return mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined;
+    mirrored: {
+      type: Boolean
     },
   },
-});
+  setup(props) {
+    const contextWeight = inject("weight", "regular")
+    const contextSize = inject("size", "1em")
+    const contextColor = inject("color", "currentColor")
+    const contextMirrored = inject("mirrored", false)
+
+    const displayWeight = computed(() => props.weight ?? contextWeight)
+    const displaySize = computed(() => props.size ?? contextSize)
+    const displayColor = computed(() => props.color ?? contextColor)
+    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+
+    return {
+      displayWeight,
+      displaySize,
+      displayColor,
+      displayMirrored
+    }
+  }
+})
 </script>

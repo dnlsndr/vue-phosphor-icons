@@ -8,201 +8,53 @@
     :fill="displayColor"
     :transform="displayMirrored"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <slot />
-    <g v-if="displayWeight === 'bold'">
-      <line
-        x1="204"
-        y1="136"
-        x2="244"
-        y2="136"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-      <circle
-        cx="108"
-        cy="100"
-        r="60"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-      <path
-        d="M22.2,200a112,112,0,0,1,171.6,0"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'duotone'">
-      <circle cx="108" cy="100" r="60" opacity="0.2" />
-      <line
-        x1="200"
-        y1="136"
-        x2="248"
-        y2="136"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <circle
-        cx="108"
-        cy="100"
-        r="60"
-        fill="none"
-        :stroke="displayColor"
-        stroke-miterlimit="10"
-        stroke-width="16"
-      />
-      <path
-        d="M22.2,200a112,112,0,0,1,171.6,0"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'fill'">
-      <path
-        d="M256,136a8,8,0,0,1-8,8H200a8,8,0,0,1,0-16h48A8,8,0,0,1,256,136ZM144.1,157.6a68,68,0,1,0-72.2,0,118.4,118.4,0,0,0-55.8,37.3,7.8,7.8,0,0,0-1.1,8.5,7.9,7.9,0,0,0,7.2,4.6H193.8a7.9,7.9,0,0,0,7.2-4.6,7.8,7.8,0,0,0-1.1-8.5A118.4,118.4,0,0,0,144.1,157.6Z"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'light'">
-      <line
-        x1="200"
-        y1="136"
-        x2="248"
-        y2="136"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="12"
-      />
-      <circle
-        cx="108"
-        cy="100"
-        r="60"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="12"
-      />
-      <path
-        d="M22.2,200a112,112,0,0,1,171.6,0"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="12"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'thin'">
-      <line
-        x1="200"
-        y1="136"
-        x2="248"
-        y2="136"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="8"
-      />
-      <circle
-        cx="108"
-        cy="100"
-        r="60"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="8"
-      />
-      <path
-        d="M22.2,200a112,112,0,0,1,171.6,0"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="8"
-      />
-    </g>
-    <g v-else-if="displayWeight === 'regular'">
-      <line
-        x1="200"
-        y1="136"
-        x2="248"
-        y2="136"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <circle
-        cx="108"
-        cy="100"
-        r="60"
-        fill="none"
-        :stroke="displayColor"
-        stroke-miterlimit="10"
-        stroke-width="16"
-      />
-      <path
-        d="M22.2,200a112,112,0,0,1,171.6,0"
-        fill="none"
-        :stroke="displayColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-    </g>
+    <g v-if="displayWeight === 'bold'"><line x1="204" y1="136" x2="244" y2="136" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><circle cx="108" cy="100" r="60" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><path d="M22.2,200a112,112,0,0,1,171.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></g>
+    <g v-else-if="displayWeight === 'duotone'"><circle cx="108" cy="100" r="60" opacity="0.2"/><line x1="200" y1="136" x2="248" y2="136" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="108" cy="100" r="60" fill="none" :stroke="displayColor" stroke-miterlimit="10" stroke-width="16"/><path d="M22.2,200a112,112,0,0,1,171.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
+    <g v-else-if="displayWeight === 'fill'"><path d="M256,136a8,8,0,0,1-8,8H200a8,8,0,0,1,0-16h48A8,8,0,0,1,256,136ZM144.1,157.6a68,68,0,1,0-72.2,0,118.4,118.4,0,0,0-55.8,37.3,7.8,7.8,0,0,0-1.1,8.5,7.9,7.9,0,0,0,7.2,4.6H193.8a7.9,7.9,0,0,0,7.2-4.6,7.8,7.8,0,0,0-1.1-8.5A118.4,118.4,0,0,0,144.1,157.6Z"/></g>
+    <g v-else-if="displayWeight === 'light'"><line x1="200" y1="136" x2="248" y2="136" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><circle cx="108" cy="100" r="60" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M22.2,200a112,112,0,0,1,171.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/></g>
+    <g v-else-if="displayWeight === 'thin'"><line x1="200" y1="136" x2="248" y2="136" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><circle cx="108" cy="100" r="60" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M22.2,200a112,112,0,0,1,171.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+    <g v-else-if="displayWeight === 'regular'"><line x1="200" y1="136" x2="248" y2="136" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="108" cy="100" r="60" fill="none" :stroke="displayColor" stroke-miterlimit="10" stroke-width="16"/><path d="M22.2,200a112,112,0,0,1,171.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import {
-  IconComputed,
-  IconProps,
-  IconContext,
-  ContextGetter,
-  PropValidator,
-} from "../defaults";
-export default Vue.extend<{}, {}, IconComputed, IconProps>({
+import { computed, defineComponent, inject, PropType } from "vue";
+
+export default defineComponent({
   name: "PhUserMinus",
-  props: PropValidator,
-  inject: ContextGetter,
-  computed: {
-    displayWeight() {
-      const { weight, contextWeight } = this as IconProps & IconContext;
-      return weight ?? contextWeight;
+  props: {
+    weight: {
+      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
     },
-    displaySize() {
-      const { size, contextSize } = this as IconProps & IconContext;
-      return size ?? contextSize;
+    size: {
+      type: [String, Number]
     },
-    displayColor() {
-      const { color, contextColor } = this as IconProps & IconContext;
-      return color ?? contextColor;
+    color: {
+      type: String
     },
-    displayMirrored() {
-      const { mirrored, contextMirrored } = this as IconProps & IconContext;
-      return mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined;
+    mirrored: {
+      type: Boolean
     },
   },
-});
+  setup(props) {
+    const contextWeight = inject("weight", "regular")
+    const contextSize = inject("size", "1em")
+    const contextColor = inject("color", "currentColor")
+    const contextMirrored = inject("mirrored", false)
+
+    const displayWeight = computed(() => props.weight ?? contextWeight)
+    const displaySize = computed(() => props.size ?? contextSize)
+    const displayColor = computed(() => props.color ?? contextColor)
+    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+
+    return {
+      displayWeight,
+      displaySize,
+      displayColor,
+      displayMirrored
+    }
+  }
+})
 </script>
