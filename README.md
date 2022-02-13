@@ -1,28 +1,28 @@
 <img src="/meta/phosphor-mark-tight-yellow.png" width="128" align="right" />
 
-# phosphor-vue
+# vue-phosphor-icons
 
 Phosphor is a flexible icon family for interfaces, diagrams, presentations — whatever, really. Explore all our icons at [phosphoricons.com](https://phosphoricons.com).
 
-For Vue 3 support, check out the [vue3](https://github.com/phosphor-icons/phosphor-vue/tree/vue3) branch.
+For Vue 3 support, check out the [vue3](https://github.com/phosphor-icons/vue-phosphor-icons/tree/vue3) branch.
 
-[![NPM](https://img.shields.io/npm/v/phosphor-vue.svg?style=flat-square)](https://www.npmjs.com/package/phosphor-vue) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com) [![Travis](https://img.shields.io/travis/com/rektdeckard/phosphor-vue.svg?style=flat-square)](https://travis-ci.com/github/rektdeckard/phosphor-vue)
+[![NPM](https://img.shields.io/npm/v/vue-phosphor-icons.svg?style=flat-square)](https://www.npmjs.com/package/vue-phosphor-icons) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com) [![Travis](https://img.shields.io/travis/com/rektdeckard/vue-phosphor-icons.svg?style=flat-square)](https://travis-ci.com/github/rektdeckard/vue-phosphor-icons)
 
-[![GitHub stars](https://img.shields.io/github/stars/phosphor-icons/phosphor-vue?style=flat-square&label=Star)](https://github.com/phosphor-icons/phosphor-vue)
-[![GitHub forks](https://img.shields.io/github/forks/phosphor-icons/phosphor-vue?style=flat-square&label=Fork)](https://github.com/phosphor-icons/phosphor-vue/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/phosphor-icons/phosphor-vue?style=flat-square&label=Watch)](https://github.com/phosphor-icons/phosphor-vue)
+[![GitHub stars](https://img.shields.io/github/stars/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Star)](https://github.com/phosphor-icons/vue-phosphor-icons)
+[![GitHub forks](https://img.shields.io/github/forks/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Fork)](https://github.com/phosphor-icons/vue-phosphor-icons/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Watch)](https://github.com/phosphor-icons/vue-phosphor-icons)
 [![Follow on GitHub](https://img.shields.io/github/followers/rektdeckard?style=flat-square&label=Follow)](https://github.com/rektdeckard)
 
 ## Installation
 
 ```bash
-yarn add phosphor-vue
+yarn add vue-phosphor-icons
 ```
 
 or
 
 ```bash
-npm install --save phosphor-vue
+npm install --save vue-phosphor-icons
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ npm install --save phosphor-vue
 </template>
 
 <script>
-  import { PhHorse, PhHeart, PhCube } from "phosphor-vue";
+  import { PhHorse, PhHeart, PhCube } from "vue-phosphor-icons";
   export default {
     name: "App",
     components: {
@@ -71,7 +71,7 @@ Phosphor takes advantage of Vue's `provide`/`inject` options to make applying a 
 </template>
 
 <script>
-  import { PhHorse, PhHeart, PhCube } from "phosphor-vue";
+  import { PhHorse, PhHeart, PhCube } from "vue-phosphor-icons";
   export default {
     name: "App",
     components: {

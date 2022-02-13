@@ -8,23 +8,23 @@ export default defineConfig({
     createVuePlugin(),
     ...(process.env.ANALYZE === "true"
       ? [
-          visualizer({
-            open: true,
-            title: "phosphor-vue bundle visualizer",
-          }),
-        ]
+        visualizer({
+          open: true,
+          title: "vue-phosphor-icons bundle visualizer",
+        }),
+      ]
       : []),
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/phosphor-vue.ts"),
+      entry: resolve(__dirname, "src/vue-phosphor-icons.ts"),
       name: "PhosphorVue",
-      // fileName: "phosphor-vue",
+      // fileName: "vue-phosphor-icons",
 
       formats: ["es", "umd", "iife", "cjs"],
     },
     target: "esnext",
-    // ssr: resolve(__dirname, "src/phosphor-vue.ts"),
+    // ssr: resolve(__dirname, "src/vue-phosphor-icons.ts"),
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
