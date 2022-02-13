@@ -2,11 +2,17 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
+const globals = {
+  // Provide global variable names to replace your external imports
+  // eg. jquery: '$'
+  vue: "Vue",
+};
+
 export default defineConfig({
   plugins: [vue()],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: resolve(__dirname, "src/vue-phosphor-icons.ts"),
       name: "VuePhosphorIcons",
     },
     rollupOptions: {
@@ -14,8 +20,14 @@ export default defineConfig({
       output: [
         {
           preserveModules: true,
-          exports: "named",
-          format: 'es',
+          format: 'esm',
+          entryFileNames: `[name].esm.js`,
+          globals
+        },
+        {
+          compact: true,
+          format: "umd",
+          globals
         }
       ],
     },

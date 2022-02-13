@@ -1,19 +1,17 @@
 {
   "name": "@dnlsndr/vue-phosphor-icons",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "A clean and friendly icon family for Vue, too!",
-  "author": "rektdeckard",
   "license": "MIT",
-  "repository": "phosphor-icons/vue-phosphor-icons",
-  "homepage": "https://phosphoricons.com",
+  "repository": "dnlsndr/vue-phosphor-icons",
   "sideEffects": false,
-  "types": "dist/index.d.ts",
-  "main": "dist/vue-phosphor-icons.umd.js",
-  "browser": "dist/vue-phosphor-icons.es.js",
-  "module": "dist/vue-phosphor-icons.es.js",
+  "types": "dist/vue-phosphor-icons.d.ts",
+  "main": "dist/vue-phosphor-icons.esm.js",
+  "browser": "dist/vue-phosphor-icons.esm.js",
+  "module": "dist/vue-phosphor-icons.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-phosphor-icons.es.js",
+      "import": "./dist/vue-phosphor-icons.esm.js",
       "require": "./dist/vue-phosphor-icons.umd.js"
     }
   },
