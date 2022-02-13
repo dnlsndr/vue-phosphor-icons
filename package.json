@@ -1,6 +1,6 @@
 {
   "name": "@dnlsndr/vue-phosphor-icons",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Vue2 tree shakeable Phosphor icons component library",
   "author": "Daniel Schneider <daniel.schneider@eramux.com>",
   "license": "MIT",
