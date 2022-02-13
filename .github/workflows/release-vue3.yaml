@@ -34,7 +34,7 @@ jobs:
           tag-prefix:  'v'
       - run: |
           npm ci --force
-          npm run build
+          NODE_OPTIONS=--max_old_space_size=2048 npm run build
           npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

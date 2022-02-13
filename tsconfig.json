@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
+    "transpileOnly": true,
     "outDir": "dist",
     "declaration": true,
     "types": ["vite/client"]
