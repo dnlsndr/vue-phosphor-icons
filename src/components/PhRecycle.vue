@@ -1,3 +1,38 @@
+<script lang="ts">
+export default {
+  name: "PhRecycle"
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, inject, PropType } from "vue";
+
+const props = defineProps({
+  weight: {
+    type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
+  },
+  size: {
+    type: [String, Number]
+  },
+  color: {
+    type: String
+  },
+  mirrored: {
+    type: Boolean
+  },
+})
+
+const contextWeight = inject("weight", "regular")
+const contextSize = inject("size", "1em")
+const contextColor = inject("color", "currentColor")
+const contextMirrored = inject("mirrored", false)
+
+const displayWeight = computed(() => props.weight ?? contextWeight)
+const displaySize = computed(() => props.size ?? contextSize)
+const displayColor = computed(() => props.color ?? contextColor)
+const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+</script>
+
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,43 +52,3 @@
     <g v-else-if="displayWeight === 'regular'"><polyline points="152 232 128 208 152 184" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="194.6 75.2 185.8 108 153.1 99.2" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="79 140.8 70.2 108 37.4 116.8" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M128,208h88a16,16,0,0,0,13.8-24l-23.9-41.4" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M70.2,108l-44,76A16,16,0,0,0,40,208H88" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M185.8,108l-44-76a15.9,15.9,0,0,0-27.6,0l-24,41.4" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
-
-export default defineComponent({
-  name: "PhRecycle",
-  props: {
-    weight: {
-      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
-    },
-    size: {
-      type: [String, Number]
-    },
-    color: {
-      type: String
-    },
-    mirrored: {
-      type: Boolean
-    },
-  },
-  setup(props) {
-    const contextWeight = inject("weight", "regular")
-    const contextSize = inject("size", "1em")
-    const contextColor = inject("color", "currentColor")
-    const contextMirrored = inject("mirrored", false)
-
-    const displayWeight = computed(() => props.weight ?? contextWeight)
-    const displaySize = computed(() => props.size ?? contextSize)
-    const displayColor = computed(() => props.color ?? contextColor)
-    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
-
-    return {
-      displayWeight,
-      displaySize,
-      displayColor,
-      displayMirrored
-    }
-  }
-})
-</script>

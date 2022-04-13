@@ -1,3 +1,38 @@
+<script lang="ts">
+export default {
+  name: "PhPhosphorLogo"
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, inject, PropType } from "vue";
+
+const props = defineProps({
+  weight: {
+    type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
+  },
+  size: {
+    type: [String, Number]
+  },
+  color: {
+    type: String
+  },
+  mirrored: {
+    type: Boolean
+  },
+})
+
+const contextWeight = inject("weight", "regular")
+const contextSize = inject("size", "1em")
+const contextColor = inject("color", "currentColor")
+const contextMirrored = inject("mirrored", false)
+
+const displayWeight = computed(() => props.weight ?? contextWeight)
+const displaySize = computed(() => props.size ?? contextSize)
+const displayColor = computed(() => props.color ?? contextColor)
+const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+</script>
+
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,43 +52,3 @@
     <g v-else-if="displayWeight === 'regular'"><line x1="68" y1="32" x2="134" y2="164" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="68" y="32" width="66" height="132" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M134,164v66a65.9,65.9,0,0,1-66-66" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M134,164h8a66,66,0,0,0,0-132h-8" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
-
-export default defineComponent({
-  name: "PhPhosphorLogo",
-  props: {
-    weight: {
-      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
-    },
-    size: {
-      type: [String, Number]
-    },
-    color: {
-      type: String
-    },
-    mirrored: {
-      type: Boolean
-    },
-  },
-  setup(props) {
-    const contextWeight = inject("weight", "regular")
-    const contextSize = inject("size", "1em")
-    const contextColor = inject("color", "currentColor")
-    const contextMirrored = inject("mirrored", false)
-
-    const displayWeight = computed(() => props.weight ?? contextWeight)
-    const displaySize = computed(() => props.size ?? contextSize)
-    const displayColor = computed(() => props.color ?? contextColor)
-    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
-
-    return {
-      displayWeight,
-      displaySize,
-      displayColor,
-      displayMirrored
-    }
-  }
-})
-</script>

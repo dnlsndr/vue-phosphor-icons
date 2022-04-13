@@ -1,3 +1,38 @@
+<script lang="ts">
+export default {
+  name: "PhCameraRotate"
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, inject, PropType } from "vue";
+
+const props = defineProps({
+  weight: {
+    type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
+  },
+  size: {
+    type: [String, Number]
+  },
+  color: {
+    type: String
+  },
+  mirrored: {
+    type: Boolean
+  },
+})
+
+const contextWeight = inject("weight", "regular")
+const contextSize = inject("size", "1em")
+const contextColor = inject("color", "currentColor")
+const contextMirrored = inject("mirrored", false)
+
+const displayWeight = computed(() => props.weight ?? contextWeight)
+const displaySize = computed(() => props.size ?? contextSize)
+const displayColor = computed(() => props.color ?? contextColor)
+const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+</script>
+
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,43 +52,3 @@
     <g v-else-if="displayWeight === 'regular'"><path d="M208,208H48a16,16,0,0,1-16-16V80A16,16,0,0,1,48,64H80L96,40h64l16,24h32a16,16,0,0,1,16,16V192A16,16,0,0,1,208,208Z" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,120l-15.7-16.3a40.1,40.1,0,0,0-56.6,0" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M156.3,160.3a40.1,40.1,0,0,1-56.6,0L84,144" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="176 96 172 120 148 124" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="108 140 84 144 80 168" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
-
-export default defineComponent({
-  name: "PhCameraRotate",
-  props: {
-    weight: {
-      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
-    },
-    size: {
-      type: [String, Number]
-    },
-    color: {
-      type: String
-    },
-    mirrored: {
-      type: Boolean
-    },
-  },
-  setup(props) {
-    const contextWeight = inject("weight", "regular")
-    const contextSize = inject("size", "1em")
-    const contextColor = inject("color", "currentColor")
-    const contextMirrored = inject("mirrored", false)
-
-    const displayWeight = computed(() => props.weight ?? contextWeight)
-    const displaySize = computed(() => props.size ?? contextSize)
-    const displayColor = computed(() => props.color ?? contextColor)
-    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
-
-    return {
-      displayWeight,
-      displaySize,
-      displayColor,
-      displayMirrored
-    }
-  }
-})
-</script>

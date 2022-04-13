@@ -1,3 +1,38 @@
+<script lang="ts">
+export default {
+  name: "PhCursorText"
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, inject, PropType } from "vue";
+
+const props = defineProps({
+  weight: {
+    type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
+  },
+  size: {
+    type: [String, Number]
+  },
+  color: {
+    type: String
+  },
+  mirrored: {
+    type: Boolean
+  },
+})
+
+const contextWeight = inject("weight", "regular")
+const contextSize = inject("size", "1em")
+const contextColor = inject("color", "currentColor")
+const contextMirrored = inject("mirrored", false)
+
+const displayWeight = computed(() => props.weight ?? contextWeight)
+const displaySize = computed(() => props.size ?? contextSize)
+const displayColor = computed(() => props.color ?? contextColor)
+const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+</script>
+
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,43 +52,3 @@
     <g v-else-if="displayWeight === 'regular'"><path d="M176,208H160a32,32,0,0,1-32-32V80a32,32,0,0,1,32-32h16" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,208H96a32,32,0,0,0,32-32V80A32,32,0,0,0,96,48H80" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="104" y1="128" x2="152" y2="128" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
-
-export default defineComponent({
-  name: "PhCursorText",
-  props: {
-    weight: {
-      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
-    },
-    size: {
-      type: [String, Number]
-    },
-    color: {
-      type: String
-    },
-    mirrored: {
-      type: Boolean
-    },
-  },
-  setup(props) {
-    const contextWeight = inject("weight", "regular")
-    const contextSize = inject("size", "1em")
-    const contextColor = inject("color", "currentColor")
-    const contextMirrored = inject("mirrored", false)
-
-    const displayWeight = computed(() => props.weight ?? contextWeight)
-    const displaySize = computed(() => props.size ?? contextSize)
-    const displayColor = computed(() => props.color ?? contextColor)
-    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
-
-    return {
-      displayWeight,
-      displaySize,
-      displayColor,
-      displayMirrored
-    }
-  }
-})
-</script>

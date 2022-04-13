@@ -1,3 +1,38 @@
+<script lang="ts">
+export default {
+  name: "PhPopcorn"
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, inject, PropType } from "vue";
+
+const props = defineProps({
+  weight: {
+    type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
+  },
+  size: {
+    type: [String, Number]
+  },
+  color: {
+    type: String
+  },
+  mirrored: {
+    type: Boolean
+  },
+})
+
+const contextWeight = inject("weight", "regular")
+const contextSize = inject("size", "1em")
+const contextColor = inject("color", "currentColor")
+const contextMirrored = inject("mirrored", false)
+
+const displayWeight = computed(() => props.weight ?? contextWeight)
+const displaySize = computed(() => props.size ?? contextSize)
+const displayColor = computed(() => props.color ?? contextColor)
+const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
+</script>
+
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -17,43 +52,3 @@
     <g v-else-if="displayWeight === 'regular'"><path d="M35.1,93.3,62.5,209.8a8.1,8.1,0,0,0,7.8,6.2H185.7a8.1,8.1,0,0,0,7.8-6.2L220.9,93.3a8.1,8.1,0,0,0-10-9.6L168,96,131,81.2a7.8,7.8,0,0,0-6,0L88,96,45.1,83.7A8.1,8.1,0,0,0,35.1,93.3Z" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="88" y1="96" x2="104" y2="216" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="168" y1="96" x2="152" y2="216" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M216,84a36,36,0,0,0-52.9-31.8,35.9,35.9,0,0,0-70.2,0A36,36,0,0,0,40,84" fill="none" :stroke="displayColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></g>
   </svg>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
-
-export default defineComponent({
-  name: "PhPopcorn",
-  props: {
-    weight: {
-      type: String as PropType<"thin" | "light" | "regular" | "bold" | "fill" | "duotone">
-    },
-    size: {
-      type: [String, Number]
-    },
-    color: {
-      type: String
-    },
-    mirrored: {
-      type: Boolean
-    },
-  },
-  setup(props) {
-    const contextWeight = inject("weight", "regular")
-    const contextSize = inject("size", "1em")
-    const contextColor = inject("color", "currentColor")
-    const contextMirrored = inject("mirrored", false)
-
-    const displayWeight = computed(() => props.weight ?? contextWeight)
-    const displaySize = computed(() => props.size ?? contextSize)
-    const displayColor = computed(() => props.color ?? contextColor)
-    const displayMirrored = computed(() => props.mirrored ?? contextMirrored ? "scale(-1, 1)" : undefined)
-
-    return {
-      displayWeight,
-      displaySize,
-      displayColor,
-      displayMirrored
-    }
-  }
-})
-</script>

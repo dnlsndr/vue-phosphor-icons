@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "serve": "vite",
-    "build": "vite build && NODE_OPTIONS=--max_old_space_size=2048 vue-tsc --emitDeclarationOnly",
+    "build": "vite build && vue-tsc",
     "compile": "vue-tsc --emitDeclarationOnly",
     "analyze": "cross-env ANALYZE=true vite build",
     "assemble": "node bin/assemble.js",
@@ -38,19 +38,19 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.17.2",
-    "@types/node": "^17.0.17",
-    "@vue/compiler-sfc": "^3.2.31",
-    "@vitejs/plugin-vue": "^2.1.0",
+    "@babel/core": "^7.17.9",
+    "@types/node": "^17.0.23",
+    "@vue/compiler-sfc": "^3.2.32",
+    "@vitejs/plugin-vue": "^2.3.1",
     "cross-env": "^7.0.3",
-    "rollup-plugin-visualizer": "^5.5.4",
-    "typescript": "^4.5.5",
-    "vite": "^2.8.1",
-    "vue": "^3.2.31",
-    "vue-tsc": "^0.31.3"
+    "rollup-plugin-visualizer": "^5.6.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1",
+    "vue": "^3.2.32",
+    "vue-tsc": "^0.34.6"
   },
   "peerDependencies": {
-    "vue": "^3.2.31"
+    "vue": "^3.2.32"
   },
   "engines": {
     "node": ">=16"
