@@ -3,7 +3,7 @@ on:
   push:
     paths: ["stories/**", "src/**"]
     branches:
-      - vue3
+      - vue2
   workflow_dispatch:
 jobs:
   build-container:
@@ -34,7 +34,7 @@ jobs:
           tag-prefix:  'v'
       - run: |
           npm ci --force
-          NODE_OPTIONS=--max_old_space_size=2048 npm run build
-          npm publish --access public --tag next
+          npm run build
+          npm publish --access public --tag vue2
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
