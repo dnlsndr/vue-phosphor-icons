@@ -1,7 +1,6 @@
-name: Publish Package npm
+name: Publish latest
 on:
   push:
-    paths: ["src/**"]
     branches:
       - main
   workflow_dispatch:

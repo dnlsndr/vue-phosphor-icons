@@ -1,4 +1,4 @@
-name: Publish Package npm
+name: Publish vue2
 on:
   push:
     paths: ["stories/**", "src/**"]
