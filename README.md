@@ -1,5 +1,3 @@
-<img src="/meta/phosphor-mark-tight-yellow.png" width="128" align="right" />
-
 # vue-phosphor-icons
 
 A Vue 3 Phosphor icons library inspired by [phosphor-vue](https://github.com/phosphor-icons/phosphor-vue).
