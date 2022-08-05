@@ -2,50 +2,36 @@
 
 # vue-phosphor-icons
 
-Phosphor is a flexible icon family for interfaces, diagrams, presentations — whatever, really. Explore all our icons at [phosphoricons.com](https://phosphoricons.com).
+A Vue 3 Phosphor icons library inspired by [phosphor-vue](https://github.com/phosphor-icons/phosphor-vue).
 
-For Vue 3 support, check out the [vue3](https://github.com/phosphor-icons/vue-phosphor-icons/tree/vue3) branch.
-
-[![NPM](https://img.shields.io/npm/v/vue-phosphor-icons.svg?style=flat-square)](https://www.npmjs.com/package/vue-phosphor-icons) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com) [![Travis](https://img.shields.io/travis/com/rektdeckard/vue-phosphor-icons.svg?style=flat-square)](https://travis-ci.com/github/rektdeckard/vue-phosphor-icons)
-
-[![GitHub stars](https://img.shields.io/github/stars/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Star)](https://github.com/phosphor-icons/vue-phosphor-icons)
-[![GitHub forks](https://img.shields.io/github/forks/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Fork)](https://github.com/phosphor-icons/vue-phosphor-icons/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/phosphor-icons/vue-phosphor-icons?style=flat-square&label=Watch)](https://github.com/phosphor-icons/vue-phosphor-icons)
-[![Follow on GitHub](https://img.shields.io/github/followers/rektdeckard?style=flat-square&label=Follow)](https://github.com/rektdeckard)
+[![GitHub stars](https://img.shields.io/github/stars/dnlsndr/vue-phosphor-icons?style=flat-square&label=Star)](https://github.com/dnlsndr/vue-phosphor-icons)
+[![GitHub forks](https://img.shields.io/github/forks/dnlsndr/vue-phosphor-icons?style=flat-square&label=Fork)](https://github.com/dnlsndr/vue-phosphor-icons/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/dnlsndr/vue-phosphor-icons?style=flat-square&label=Watch)](https://github.com/dnlsndr/vue-phosphor-icons)
+[![Follow on GitHub](https://img.shields.io/github/followers/dnlsndr?style=flat-square&label=Follow)](https://github.com/dnlsndr)
 
 ## Installation
 
 ```bash
-yarn add vue-phosphor-icons
+yarn add @dnlsndr/vue-phosphor-icons
 ```
 
 or
 
 ```bash
-npm install --save vue-phosphor-icons
+npm install --save @dnlsndr/vue-phosphor-icons
 ```
 
 ## Usage
 
 ```html
 <template>
-  <div>
-    <ph-horse />
-    <ph-heart :size="32" color="hotpink" weight="fill" />
-    <ph-cube />
-  </div>
+  <PhHorse />
+  <PhHeart :size="32" color="hotpink" weight="fill" />
+  <PhCube />
 </template>
 
-<script>
-  import { PhHorse, PhHeart, PhCube } from "vue-phosphor-icons";
-  export default {
-    name: "App",
-    components: {
-      PhHorse,
-      PhHeart,
-      PhCube,
-    },
-  };
+<script lang="ts" setup>
+import { PhHorse, PhHeart, PhCube } from "@dnlsndr/vue-phosphor-icons";
 </script>
 ```
 
@@ -64,36 +50,25 @@ Phosphor takes advantage of Vue's `provide`/`inject` options to make applying a 
 
 ```html
 <template>
-  <div>
-    <ph-horse /> {/* I'm lime-green, 32px, and bold! */} <ph-heart /> {/* Me
-    too! */} <ph-cube /> {/* Me three :) */}
-  </div>
+  <PhHorse /> {/* I'm lime-green, 32px, and bold! */} 
+  <PhHeart /> {/* Me too! */} 
+  <PhCube /> {/* Me three :) */}
 </template>
 
-<script>
-  import { PhHorse, PhHeart, PhCube } from "vue-phosphor-icons";
-  export default {
-    name: "App",
-    components: {
-      PhHorse,
-      PhHeart,
-      PhCube,
-    },
-    provide: {
-      color: "limegreen",
-      size: 32,
-      weight: "bold",
-      mirrored: false,
-    },
-  };
+<script lang="ts" setup>
+  import { PhHorse, PhHeart, PhCube } from "@dnlsndr/vue-phosphor-icons";
+  import { provide } from "vue"
+   
+  provide("color", "limegreen")
+  provide("size", 32)
+  provide("weight", "bold")
+  provide("mirrored", false)
 </script>
 ```
 
 You may create multiple providers for styling icons differently in separate regions of an application; icons use the nearest provider above them to determine their style.
 
-**Note:** The **color**, **size**, **weight**, and **mirrored** properties are all _optional_ props when creating a context, but default to `"currentColor"`, `"1em"`, `"regular"` and `false`. Also be aware that when using this API, per Vue:
-
-> The `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+**Note:** The **color**, **size**, **weight**, and **mirrored** properties are all _optional_ props when creating a context, but default to `"currentColor"`, `"1em"`, `"regular"` and `false`.
 
 ### Slots
 
@@ -105,7 +80,7 @@ The following will cause the Cube icon to rotate and pulse:
 
 ```html
 <template>
-  <ph-cube color="darkorchid" weight="duotone">
+  <PhCube color="darkorchid" weight="duotone">
     <animate
       attributeName="opacity"
       values="0;1;0"
@@ -121,13 +96,13 @@ The following will cause the Cube icon to rotate and pulse:
       to="360 0 0"
       repeatCount="indefinite"
     />
-  </ph-cube>
+  </PhCube>
 </template>
 ```
 
 **Note:** The coordinate space of slotted elements is relative to the contents of the icon `viewBox`, which is a 256x256 square. Only [valid SVG elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#SVG_elements_by_category) will be rendered.
 
-## Our Related Projects
+## Related Projects
 
 - [phosphor-home](https://github.com/phosphor-icons/phosphor-home) ▲ Phosphor homepage and general info
 - [phosphor-react](https://github.com/phosphor-icons/phosphor-react) ▲ Phosphor icon component library for React
@@ -143,9 +118,3 @@ The following will cause the Cube icon to rotate and pulse:
 - [phosphor-svelte](https://github.com/haruaki07/phosphor-svelte) ▲ Phosphor icons for Svelte apps
 - [phosphor-r](https://github.com/dreamRs/phosphoricons) ▲ Phosphor icon wrapper for R documents and applications
 - [blade-phosphor-icons](https://github.com/codeat3/blade-phosphor-icons) ▲ Phosphor icons in your Laravel Blade views
-
-If you've made a port of Phosphor and you want to see it here, just open a PR [here](https://github.com/phosphor-icons/phosphor-home)!
-
-## License
-
-MIT © [phosphor-icons](https://github.com/phosphor-icons)
