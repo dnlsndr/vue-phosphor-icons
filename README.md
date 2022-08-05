@@ -29,7 +29,7 @@ npm install --save @dnlsndr/vue-phosphor-icons
 </template>
 
 <script lang="ts" setup>
-import { PhHorse, PhHeart, PhCube } from "@dnlsndr/vue-phosphor-icons";
+  import { PhHorse, PhHeart, PhCube } from "@dnlsndr/vue-phosphor-icons";
 </script>
 ```
 
