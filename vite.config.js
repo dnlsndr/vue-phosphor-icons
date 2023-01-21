@@ -17,19 +17,14 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["vue"],
-      // output: [
-      //   {
-      //     preserveModules: true,
-      //     format: 'esm',
-      //     entryFileNames: `[name].esm.js`,
-      //     globals
-      //   },
-      //   {
-      //     compact: true,
-      //     format: "umd",
-      //     globals
-      //   }
-      // ],
+      output: [
+        {
+          preserveModules: true,
+          format: 'esm',
+          entryFileNames: `[name].mjs`,
+          globals
+        },
+      ],
     },
   },
 });
