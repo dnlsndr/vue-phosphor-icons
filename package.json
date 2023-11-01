@@ -38,7 +38,7 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.23.2",
-    "@types/node": "18.18.8",
+    "@types/node": "20.8.10",
     "@vue/compiler-sfc": "3.3.7",
     "@vitejs/plugin-vue": "4.4.0",
     "cross-env": "7.0.3",
